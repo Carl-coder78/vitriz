@@ -1,0 +1,21 @@
+### AL ###
+# Carpetas de configuración local
+.vscode/
+.idea/
+
+# Archivos temporales o de respaldo
+*.tmp
+*.log
+*.bak
+*.map
+
+# Carpeta descartada (no forma parte del layout ni despliegue)
+Cartagena/
+
+# Archivos no funcionales ni visuales
+Readme.txt
+nousado.css
+
+# SVGs no validados o fuera del despliegue
+svg/
+

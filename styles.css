@@ -1,0 +1,1192 @@
+/* 🎯 Base variables globales */
+:root {
+  --max-ancho-contenido: 1140px;
+  --max-ancho-vitrina: 1200px;
+  --max-ancho-full: 1440px;
+  --blanco: #ffffff;
+  --negro: #000000;
+  --oscuro: #222222;
+  --fondo: f9f7f4;
+  --verde: #02b881;
+  --sombra: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --radio: 0.75rem;
+  --fuente: 'Poppins', sans-serif;
+  --sidebar-offset: calc(100.98px + 0.5rem);
+}
+
+/* 🧠 Estilos base del body */
+body {
+  margin: 0;
+  padding-inline: 0;
+  font-family: var(--fuente);
+  background: var(--fondo);
+  color: var(--oscuro);
+}
+
+
+/* === HEADER general === */
+.header {
+  background: var(--blanco);
+  color: var(--negro);
+  padding: 0.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--sombra);
+  margin-bottom: 1rem;
+}
+
+/* === CONTENEDOR principal del nav === */
+.nav-container {
+  max-width: var(--max-ancho-vitrina);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-inline: 4rem; /* ≈64px por lado, más elegante */
+}
+
+
+/* === LOGO y SLOGAN === */
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1.5rem;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+}
+
+.nav-slogan {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.3rem;
+  margin-left: 0.2rem;
+}
+
+/* === MENÚ DE NAVEGACIÓN === */
+.main-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-menu li a {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-menu li a:hover {
+  color: #0077b6;
+}
+
+.nav-icon {
+  margin-right: 6px;
+  font-size: 1.1rem;
+}
+
+/* === ACCESO DEL USUARIO === */
+.user-access {
+  margin-right: 1.5rem;
+}
+
+.cta-login {
+  background-color: transparent;
+  color: #0077b6;
+  padding: 0.5rem 1rem;
+  border: 2px solid #0077b6;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta-login:hover {
+  background-color: #0077b6;
+  color: #fff;
+}
+.cta-login i {
+  color: #e04502; /* Naranja cálido tipo Vendi */
+  margin-right: 8px;
+}
+
+/* Hero */
+.hero-vendi {
+  position: relative;
+  margin: 1rem;
+  height: 560px;
+  max-width: var(--max-ancho-vitrina);
+  margin: 0 auto 3rem auto;
+  padding: 0 2rem;
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--radio);
+}
+
+
+/* AdSense */
+
+.adsense-horizontal {
+  max-width: 728px;
+  margin:2rem auto 0 auto;
+  text-align: center;
+}
+
+.vendi-placeholder {
+  width: 728px;
+  height: 90px;
+  border: 2px dashed #ccc;
+  border-radius: 0.5rem;
+  background: linear-gradient(to right, #fafafa, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  box-shadow: var(--sombra);
+}
+
+.contenido-anuncio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contenido-anuncio img {
+  width: 40px;
+  opacity: 0.6;
+}
+
+.sello-temporal {
+  font-size: 0.7rem;
+  background: #eeeeee;
+  padding: 0.2rem 0.8rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Main layout */
+.main-container {
+  display: block;
+  max-width: var(--max-ancho-vitrina);
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* GRID BUSQUEDA */
+.bloque-busqueda {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* TÍTULO */
+.titulo-busqueda {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem; /* alinea visualmente con el panel izquierdo */
+  text-align: left;
+  }
+
+.panel-grid {
+  display: flex;
+  align-items: stretch; /* esto fuerza que ambos hijos tengan la misma altura */
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* TITULO NIVELADO CON LA CAJA */
+.titulo-busqueda {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 auto -1rem auto; /* para que no separe mucho del panel */
+  padding-left: 2rem; /* igual que el .panel-grid */
+}
+
+/* PANEL IZQUIERDO */
+.left-panel {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* LISTA */
+.categoria-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* CADA ITEM */
+.categoria-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #aaa;
+  border-radius: 0.8rem;
+  transition: background 0.2s ease;
+}
+
+.categoria-lista li:hover {
+  background: #f3f3f3;
+}
+
+/* ICONOS */
+.categoria-lista img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  margin-top: 4px;
+}
+
+/* TEXTO DE CADA BLOQUE */
+.texto-categoria {
+  display: flex;
+  flex-direction: column;
+}
+
+.texto-categoria .titulo {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #111;
+}
+
+.texto-categoria .descripcion {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.3;
+}
+
+/* BLOQUE VIDEO */
+.bloque-emocional {
+  flex: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.bloque-emocional video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 1rem;
+}
+
+/* 🎯 Separador minitags */
+.minitags-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  
+}
+
+.icono-silueta {
+  width: 10%;
+  height: auto;
+  object-fit: contain;
+}
+
+.icono-silueta path {
+  fill: #f6f7f8;
+}
+
+.fila {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.fila-superior {
+  justify-content: center;
+}
+
+.fila-superior .minitag:nth-child(2) {
+  transform: translateY(30px); /* Puedes ajustar este valor */
+}
+
+.fila-inferior {
+  justify-content: center;
+}
+
+/* Minitag individual */
+.titulo-minitags {
+  padding: 1rem 2rem 0.5rem 2rem; /* Ajuste inferior para aire antes de la línea */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #143956;
+  margin: 3rem auto 1.5rem auto;
+  text-align: center;
+  width: 50%;
+  background-color: transparent;
+  border: none;
+  position: relative;
+}
+
+.titulo-minitags::after {
+  content: "";
+  display: block;
+  width: 47%; /* Línea más corta que el texto */
+  height: 2px;
+  background-color: #143956;
+  margin: 0.2rem auto 0 auto; /* Aire entre texto y línea */
+  border-radius: 1px;
+}
+
+.minitags-separador {
+  margin-top: 2rem;
+  position: relative;
+  overflow: visible;
+}
+
+.minitag {
+  max-width: 260px;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.minitag svg {
+  width: 60%;
+  height: auto;
+  z-index: 1;
+  position: relative;
+}
+
+/* Texto */
+.minitag p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  min-height: 6.4rem; /* Fuerza 4 líneas completas (1.6rem x 4) */
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Fija 4 líneas visibles */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* El contenedor tiene contexto para stacking */
+.minitags-separador {
+  position: relative;
+  overflow: visible;
+}
+
+
+.bloque-editorial {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.contenido-editorial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.frase-editorial {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.cta-editorial {
+  font-weight: bold;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+
+.icono-editorial {
+  width: 32px;
+  height: 32px;
+  fill: #0077cc;
+}
+
+
+:root {
+  --blanco: #ffffff;
+  --oscuro: #212529;
+  --radio: 0.25rem;
+  --sombra: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --sidebar-offset: 110.98px; /* altura del header */
+}
+
+.panel-exploracion {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Propiedades comunes para panel y wrapper sticky */
+aside.sidebar-panel,
+aside.sidebar-panel-left {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Panel de filtros lateral */
+aside.sidebar-panel {
+  gap: 1.5rem;
+  margin-top: 2rem;
+  background: var(--blanco);
+  padding: 1.5rem;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* Wrapper sticky para el sidebar */
+aside.sidebar-panel-left {
+  flex: 0 0 320px;
+  gap: 2rem;
+  position: sticky;
+  top: var(--sidebar-offset);
+  align-self: flex-start;
+  z-index: 900;
+  transition: top 0.3s ease-in-out;
+  will-change: top;
+  overflow: visible;
+}
+
+/* Reset aplicado a legend en fieldsets */
+aside.sidebar-panel fieldset legend {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  color: var(--oscuro);
+}
+
+
+/* Reset visual de leyendas e inputs ocultos */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  border: 1px solid #e0e0e0;
+}
+
+/* Grupos de filtros */
+.filter-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Leyendas */
+.filter-group legend {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--oscuro);
+  margin-bottom: 0.25rem;
+}
+
+/* Botones de tipo de propiedad */
+.property-type {
+  flex-direction: column;
+}
+
+.property-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1rem;
+  align-items: center;
+}
+
+.property-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--oscuro);
+  cursor: pointer;
+}
+
+.property-check input[type="checkbox"] {
+  accent-color: #1890ff;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.property-check i {
+  font-size: 1rem;
+  color: #1890ff;
+}
+
+
+/* Inputs de precio */
+.price-filter {
+  flex-direction: column;
+}
+
+.price-filter .price-options {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.price-check {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--oscuro);
+  cursor: pointer;
+}
+
+.price-check input[type="checkbox"] {
+  accent-color: #1890ff;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+/* Input de ubicación */
+.location-filter select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cccccc;
+  border-radius: var(--radio);
+  font-size: 0.875rem;
+  background-color: var(--blanco);
+  color: var(--oscuro);
+}
+
+
+/* 1. Botón de “Más filtros” */
+.more-filters-toggle {
+  align-self: flex-start;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1890ff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.more-filters-toggle:hover {
+  color: #096dd9;
+}
+
+.more-filters-toggle .arrow-down {
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.more-filters-toggle[aria-expanded="true"] .arrow-down {
+  transform: rotate(-135deg);
+}
+
+/* 2. Contenedor de filtros extra */
+#additional-filters,
+.additional-filters {
+  padding: 1rem;
+  margin-top: 0.5rem;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+/* 3. Ocultar con clase hidden */
+.hidden {
+  display: none !important;
+}
+
+/* 4. Grid general de opciones */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));  
+}
+
+/* 5. Título interno de cada grupo */
+.filter-group-title {
+  grid-column: 1 / -1;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* 6. Cada opción de filtro */
+.filter-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.filter-check:hover {
+  background-color: #f0f8ff;
+}
+
+.filter-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1890ff;
+}
+
+.filter-check span {
+  font-size: 0.875rem;
+  color: #333;
+}
+
+/* 7. Selects internos (si los hay) */
+.additional-filters select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.additional-filters select:focus {
+  outline: none;
+  border-color: #1890ff;
+}
+
+/* Tooltip seleccione propiedad*/
+.filter-tooltip {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  color: #d93025; /* rojo alerta */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.filter-tooltip.visible {
+  opacity: 1;
+}
+
+.filter-tooltip.hidden {
+  display: none !important;
+}
+
+/* Botón de búsqueda Y RESET*/
+#filters-form {
+  position: relative;
+  padding-bottom: 3rem; /* deja espacio para los botones */
+}
+
+#filters-form .icon-btn--search,
+#filters-form .icon-btn--reset {
+  position: absolute;
+  bottom: 1rem;
+}
+
+#filters-form .icon-btn--search {
+  right: 5rem; /* espacio para el reset */
+}
+
+#filters-form .icon-btn--reset {
+  right: 1rem;
+}
+
+/* ————————————
+   Estilo circular
+   ———————————— */
+#filters-form .icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+#filters-form .icon-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #444444;
+}
+
+#filters-form .icon-btn:hover,
+#filters-form .icon-btn:focus {
+  background-color: #f5f5f5;
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* No results message */
+.no-results {
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: center;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* ————————————
+   Responsivo filtros (opcional)
+   ———————————— */
+@media (max-width: 600px) {
+  #filters-form .icon-btn {
+    width: 2rem;
+    height: 2rem;
+  }
+  #filters-form .icon-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+
+/* Sticky aside reforzado en pantallas grandes */
+@media (min-width: 1024px) {
+  aside.sidebar-panel-left {
+    top: var(--sidebar-offset);
+  }
+}
+
+
+.anuncio-inferior {
+  margin: 3rem auto 2rem;
+  max-width: 728px;
+  text-align: center;
+}
+
+
+/* === Vitrina principal de miniaturas === */
+.vitrina-vendi {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vitrina-vendi h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--oscuro);
+}
+
+/* === Grid responsive de tarjetas Vendi === */
+.grid-miniaturas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* === Tarjetas individuales === */
+.miniatura {
+  width: 100%;
+  max-width: 340px;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 380px;
+  padding-bottom: 0.6rem; /* Aire interno controlado */
+}
+
+.miniatura .info-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem; /* aire perceptual mínimo */
+  padding: 0 1rem; /* sin aire vertical */
+  flex-grow: 1;
+}
+
+.miniatura img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0; /* asegura que no se genera aire innecesario */
+}
+
+.miniatura .contenido {
+  padding: 0.75em 1em; /* controlado para no provocar salto visual */
+  line-height: 1.4;
+}
+
+.img-wrapper img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+}
+
+/* 2. título alineado izquierda */
+.titulo {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.fila-precio-fav {
+  display: flex;
+  justify-content: space-between; /* 3 y 4 */
+  align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.fila-acciones {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;       /* espacio entre Ver más y Contactar */
+  margin-top: 0.5rem;/* opcional, ajusta si quieres aire interno */
+}
+
+.precio {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.favoritos {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.favoritos svg {
+  vertical-align: middle;
+  fill: none;
+  stroke: #e64646;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+/* Clase que añades al hacer click: */
+.favoritos.favorited svg,
+.favoritos[aria-pressed="true"] svg {
+  fill: #e64646;
+  stroke: none;
+}
+
+
+/* 5. Vistas debajo de precio, junto a botón azul */
+.fila-vista-vermas {
+  display: grid; /* control total, sin reparto automático */
+  grid-template-columns: auto 1fr; /* vistas limitadas, botón expande */
+  align-items: center;
+  padding-bottom: 0.5rem;
+  column-gap: 0.8rem;
+}
+
+.vistas {
+  font-size: 0.85rem;
+  color: #7A7A7A;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap; /* evita salto perceptual */
+  font-size: 0.85rem;
+  color: #7A7A7A;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vistas svg {
+  vertical-align: middle;
+}
+
+.card-detalles {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.6rem;    /* espacio vertical real bajo toda la lista */
+  color: #7A7A7A;
+}
+
+/* separador vertical sin margen inferior */
+.card-detalles li + li::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 0.85em;
+  background-color: #DADADA;
+  margin: 0 0.5rem;      /* sólo espacio horizontal alrededor del separador */
+}
+
+/* 6. marco azul con frase a derecha */
+.ver-mas {
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0rem;
+  border-radius: 4px;
+  color: #fff;
+  background: #007bff;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.ver-mas:hover {
+  background: #0056b3;
+}
+
+.cta-contactar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-contactar {
+  background: transparent;
+  border: 1px solid #999;
+  color: #333;
+  font-size: 0.85rem;
+  padding: 0.4rem 0rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-contactar:hover {
+  border-color: #0083c9;
+  color: #0083c9;
+}
+
+.ver-mas,
+.btn-contactar {
+  display: block;
+  width: 100%;             /* cada uno ocupa su 50% del grid */
+  box-sizing: border-box;
+}
+
+.fila-atributos {
+  margin: 0.3rem 0 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 0.6rem;
+}
+
+.fila-atributos .atributo {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.fila-atributos i {
+  font-size: 1rem;
+  color: #888;
+}
+
+.fila-acciones {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.fila-acciones a {
+  text-align: center;
+  /* si deseas forzar altura igual, descomenta: */
+  /* padding: 0.4rem 0; */
+}
+
+/* 1. Fuerza que todos los contenedores de ítem usen flex y centren verticalmente */
+.fila-atributos .atributo,
+.fila-precio-fav,
+.favoritos,
+.vistas {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;          /* espacio horizontal consistente */
+  margin: 0;            /* elimina márgenes sobrantes */
+  padding: 0.2rem 0;    /* un pequeño padding vertical para empastar */
+}
+
+/* 2. Fija tamaño y alineación de todos los íconos (FA + SVG) */
+.fila-atributos .atributo i,
+.fila-atributos .atributo svg,
+.fila-precio-fav svg,
+.favoritos svg,
+.vistas svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  flex-shrink: 0;       /* evita que se reduzcan */
+}
+
+/* 3. Normaliza la altura de línea para evitar saltos */
+.fila-atributos .atributo,
+.fila-precio-fav h3,
+.favoritos,
+.vistas {
+  line-height: 1.2;     /* controla el alto de los bloques de texto+icono */
+}
+
+/* 4. Si ves un ítem con más “aire” arriba o abajo, baja o sube con translate */
+.fila-atributos .atributo svg {
+  transform: translateY(1px);  /* ajusta según necesites */
+}
+
+.adsense-muestra {
+  width: 300px;
+  height: 250px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+.adsense-muestra img {
+  max-width: 60px;
+  height: auto;
+  display: block;
+}
+
+.adsense-muestra p {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+  margin: 0.3rem 0;
+}
+
+.etiqueta-anuncio {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  background: var(--blanco);
+  margin-top: 2rem;
+  color: #555;
+  box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .bloque-impacto {
+    flex-direction: column;
+  }
+
+  .columna-izquierda,
+  .columna-derecha {
+    flex: 1 1 100%;
+  }
+
+  .adsense-placeholder {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 6 / 5;
+  }
+}
+
+
+
+
+
