@@ -18,7 +18,7 @@ document.querySelectorAll('.titulo').forEach(el => {
 document.addEventListener('DOMContentLoaded', () => {
   // 🔹 BLOQUE 1: Referencias iniciales al DOM (HTML)
   const form           = document.getElementById('filters-form');
-  const cards          = Array.from(document.querySelectorAll('.vitrina-vendi .miniatura'));
+  const cards          = Array.from(document.querySelectorAll('.vitrina-vitriz .miniatura'));
   const counter        = document.getElementById('result-count'); // Opcional
   const toggleBtn      = form.querySelector('.more-filters-toggle');
   const tooltip        = form.querySelector('.filter-tooltip');
@@ -167,7 +167,7 @@ function updateNoResultsMessage(show) {
     message.id = 'no-results-message';
     message.className = 'no-results hidden';
     message.textContent = 'No se encontraron resultados.';
-    document.querySelector('.vitrina-vendi')?.appendChild(message);
+    document.querySelector('.vitrina-vitriz')?.appendChild(message);
   }
   message.classList.toggle('hidden', !show);
 }

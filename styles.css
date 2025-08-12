@@ -12,6 +12,13 @@
   --radio: 0.75rem;
   --fuente: 'Poppins', sans-serif;
   --sidebar-offset: calc(100.98px + 0.5rem);
+  --acento: var(--verde);
+  --fuente: 'Inter', sans-serif;
+  --amarillo: #ca7c08;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* 🧠 Estilos base del body */
@@ -122,12 +129,12 @@ body {
   color: #fff;
 }
 .cta-login i {
-  color: #e04502; /* Naranja cálido tipo Vendi */
+  color: #e04502; /* Naranja cálido tipo Vitriz */
   margin-right: 8px;
 }
 
 /* Hero */
-.hero-vendi {
+.hero-vitriz {
   position: relative;
   margin: 1rem;
   height: 560px;
@@ -147,6 +154,39 @@ body {
 }
 
 
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  top: 80%; /* separación desde la base del hero */
+  transform: translateX(-190%);
+  display: flex;
+  flex-direction: column; /* texto arriba, flecha abajo */
+  align-items: center;
+  text-align: center;
+  color: var(--acento);
+  text-decoration: none;
+  font-family: var(--fuente);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* SVG */
+.scroll-cue svg {
+  width: 3rem; /* un poco más grande */
+  height: auto;
+}
+
+/* Texto */
+.scroll-cue span {
+  font-family: var(--fuente);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--blanco);
+}
+
 /* AdSense */
 
 .adsense-horizontal {
@@ -155,7 +195,7 @@ body {
   text-align: center;
 }
 
-.vendi-placeholder {
+.vitriz-placeholder {
   width: 728px;
   height: 90px;
   border: 2px dashed #ccc;
@@ -834,20 +874,20 @@ aside.sidebar-panel fieldset legend {
 
 
 /* === Vitrina principal de miniaturas === */
-.vitrina-vendi {
+.vitrina-vitriz {
   flex: 1;
   width: 100%;
   box-sizing: border-box;
 }
 
-.vitrina-vendi h2 {
+.vitrina-vitriz h2 {
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 1rem;
   color: var(--oscuro);
 }
 
-/* === Grid responsive de tarjetas Vendi === */
+/* === Grid responsive de tarjetas Vitriz === */
 .grid-miniaturas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
