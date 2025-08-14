@@ -6,7 +6,7 @@
   --blanco: #ffffff;
   --negro: #000000;
   --oscuro: #222222;
-  --fondo: f9f7f4;
+  --fondo: #f9f7f4;
   --verde: #02b881;
   --sombra: 0 2px 6px rgba(0, 0, 0, 0.08);
   --radio: 0.75rem;
@@ -15,6 +15,10 @@
   --acento: var(--verde);
   --fuente: 'Inter', sans-serif;
   --amarillo: #ca7c08;
+  --border-color: #666;
+  --legend-bg: #fff;
+  --legend-padding: 0 .5em;
+  --border-radius: 4px;
 }
 
 html {
@@ -41,6 +45,16 @@ body {
   z-index: 1000;
   box-shadow: var(--sombra);
   margin-bottom: 1rem;
+  transition: 
+    background-color 0.2s ease, 
+    box-shadow 0.2s ease;
+}
+
+/* cambia al color del header para contraste */
+.header.scrolled {
+  background-color: var(--fondo);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
 }
 
 /* === CONTENEDOR principal del nav === */
@@ -357,6 +371,42 @@ body {
   border-radius: 1rem;
 }
 
+/* 🎯 fieldset minitags */
+.fieldset-like {
+  position: relative;
+  margin: 2em auto;
+  padding: 1.5em 1em;
+  border: 2px solid #F26A0F;         /* Color corporativo */
+  border-radius: 6px;
+  max-width: 640px;                   /* Centrado y ancho controlado */
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Sutil profundidad */
+}
+
+.fieldset-like__legend {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);   /* Centrado total */
+  background: #fff;                   /* Mantiene legibilidad */
+  padding: 0.4em 1em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #F26A0F;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #F26A0F;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.fieldset-like__body {
+  margin-top: 1em; /* Espacio bajo el legend */
+}
+
+
+
 /* 🎯 Separador minitags */
 .minitags-wrapper {
   display: flex;
@@ -374,7 +424,11 @@ body {
 }
 
 .icono-silueta path {
-  fill: #f6f7f8;
+  fill: #202020;
+}
+
+#path-blanco  {
+  fill: white;
 }
 
 .fila {
@@ -386,37 +440,10 @@ body {
   justify-content: center;
 }
 
-.fila-superior .minitag:nth-child(2) {
-  transform: translateY(30px); /* Puedes ajustar este valor */
-}
-
 .fila-inferior {
   justify-content: center;
 }
 
-/* Minitag individual */
-.titulo-minitags {
-  padding: 1rem 2rem 0.5rem 2rem; /* Ajuste inferior para aire antes de la línea */
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #143956;
-  margin: 3rem auto 1.5rem auto;
-  text-align: center;
-  width: 50%;
-  background-color: transparent;
-  border: none;
-  position: relative;
-}
-
-.titulo-minitags::after {
-  content: "";
-  display: block;
-  width: 47%; /* Línea más corta que el texto */
-  height: 2px;
-  background-color: #143956;
-  margin: 0.2rem auto 0 auto; /* Aire entre texto y línea */
-  border-radius: 1px;
-}
 
 .minitags-separador {
   margin-top: 2rem;
@@ -437,7 +464,7 @@ body {
 }
 
 .minitag svg {
-  width: 60%;
+  width: 70%;
   height: auto;
   z-index: 1;
   position: relative;
@@ -445,20 +472,19 @@ body {
 
 /* Texto */
 .minitag p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.9rem;            /* Un poco más compacto */
+  line-height: 1.3;             /* Menos separación vertical */
+  font-weight: 500;             /* Un poco más de presencia */
+  color: #444;                  /* Gris suave, menos plano que negro */
   text-align: center;
-  min-height: 6.4rem; /* Fuerza 4 líneas completas (1.6rem x 4) */
-  display: -webkit-box;
-  -webkit-line-clamp: 4; /* Fija 4 líneas visibles */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 0.4rem 0 0;           /* Cerca del SVG, sin amontonarse */
+  
+  /* Para darle cohesión con el badge/hexágono */
+  max-width: 90%;
 }
 
-/* El contenedor tiene contexto para stacking */
-.minitags-separador {
-  position: relative;
-  overflow: visible;
+.minitag p strong {
+  color: #F26A0F;               /* Resalta palabras clave */
 }
 
 

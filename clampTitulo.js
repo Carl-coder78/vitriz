@@ -12,6 +12,17 @@ document.querySelectorAll('.titulo').forEach(el => {
   }
 });
 
+// Efectos en el header al quedar sticky 
+// Selecciona tu header
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 0) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
 
 // Lógica FILTRADO
 // Lógica completa de filtrado de miniaturas y togle de filtros avanzados
