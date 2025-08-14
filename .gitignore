@@ -19,6 +19,7 @@ nousado.css
 # SVGs no validados o fuera del despliegue
 svg/
 
-img/logo-vitriz-Recuperado.psd
-img/logo-vitriz.psd
-img/Logo.jpg
+/img/logo-vitriz-Recuperado.psd
+/img/logo-vitriz.psd
+/img/Logo.jpg
+/img/carro-vitrina.png
