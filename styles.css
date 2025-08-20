@@ -372,121 +372,133 @@ body {
 }
 
 /* 🎯 fieldset minitags */
-.fieldset-like {
-  position: relative;
-  margin: 2em auto;
-  padding: 1.5em 1em;
-  border: 2px solid #F26A0F;         /* Color corporativo */
-  border-radius: 6px;
-  max-width: 640px;                   /* Centrado y ancho controlado */
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Sutil profundidad */
-}
+    .fieldset-like {
+      position: relative;
+      margin: 2em auto;
+      padding: 1.5em 1em;
+      border: 2px solid #F26A0F;        
+      border-radius: 6px;
+      max-width: 640px;                  
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
 
-.fieldset-like__legend {
-  text-align: center;
+    .fieldset-like__legend {
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 0.4em 1em;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #F26A0F;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 2px solid #F26A0F;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .fieldset-like__body {
+      margin-top: 1em;
+    }
+
+    /* 🎯 Separador minitags */
+    .minitags-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;  
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      position: relative; /* para que las líneas absolutas se posicionen bien */
+    }
+
+    .icono-silueta {
+      width: 10%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .icono-silueta path {
+      fill: #202020;
+    }
+
+    #path-blanco {
+      fill: white;
+    }
+
+    .fila {
+      display: flex;
+      gap: 7rem;
+    }
+
+    .fila-superior {
+      justify-content: center;
+    }
+
+    .fila-inferior {
+      justify-content: center;
+    }
+
+    .minitags-separador {
+      margin-top: 2rem;
+      position: relative;
+      overflow: visible;
+    }
+
+    .minitag {
+      max-width: 260px;
+      padding: 0.8rem;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content: center;
+      position: relative;
+      z-index: 1; /* asegura que quede encima de las líneas */
+    }
+
+    .minitag svg {
+      width: 70%;
+      height: auto;
+      z-index: 1;
+      position: relative;
+    }
+
+    .minitag p {
+      font-size: 0.9rem;
+      line-height: 1.3;
+      font-weight: 500;
+      color: #444;
+      text-align: center;
+      margin: 0.4rem 0 0;
+      max-width: 90%;
+    }
+
+    .minitag p strong {
+      color: #F26A0F;
+    }
+
+/* 🔹 Contenedor del SVG líneas */
+#lineas-wrapper {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);   /* Centrado total */
-  background: #fff;                   /* Mantiene legibilidad */
-  padding: 0.4em 1em;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #F26A0F;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 2px solid #F26A0F;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.fieldset-like__body {
-  margin-top: 1em; /* Espacio bajo el legend */
-}
-
-
-
-/* 🎯 Separador minitags */
-.minitags-wrapper {
+  left: 0;
+  width: 100%;          /* Que siempre ocupe el ancho del fieldset */
+  height: 100%;         /* Que siempre ocupe el alto */
+  z-index: 0;
+  pointer-events: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;  
-  font-family: 'Segoe UI', sans-serif;
-  text-align: center;
-  
+  justify-content: center; /* Centra horizontal */
+  align-items: center;     /* Centra vertical */
 }
 
-.icono-silueta {
-  width: 10%;
+#lineas-wrapper svg {
+  width: 80%;   /* Escala uniforme */
   height: auto;
-  object-fit: contain;
 }
-
-.icono-silueta path {
-  fill: #202020;
-}
-
-#path-blanco  {
-  fill: white;
-}
-
-.fila {
-  display: flex;
-  gap: 2.5rem;
-}
-
-.fila-superior {
-  justify-content: center;
-}
-
-.fila-inferior {
-  justify-content: center;
-}
-
-
-.minitags-separador {
-  margin-top: 2rem;
-  position: relative;
-  overflow: visible;
-}
-
-.minitag {
-  max-width: 260px;
-  padding: 0.8rem;
-  font-size: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
-.minitag svg {
-  width: 70%;
-  height: auto;
-  z-index: 1;
-  position: relative;
-}
-
-/* Texto */
-.minitag p {
-  font-size: 0.9rem;            /* Un poco más compacto */
-  line-height: 1.3;             /* Menos separación vertical */
-  font-weight: 500;             /* Un poco más de presencia */
-  color: #444;                  /* Gris suave, menos plano que negro */
-  text-align: center;
-  margin: 0.4rem 0 0;           /* Cerca del SVG, sin amontonarse */
-  
-  /* Para darle cohesión con el badge/hexágono */
-  max-width: 90%;
-}
-
-.minitag p strong {
-  color: #F26A0F;               /* Resalta palabras clave */
-}
-
 
 .bloque-editorial {
   background-color: #f9f9f9;

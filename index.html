@@ -77,7 +77,7 @@
     <div class="adsense-horizontal">
       <div class="adsense-placeholder vitriz-placeholder">
         <div class="contenido-anuncio">
-          <img src="https://i.postimg.cc/XNPfvqVs/vitriz-icono.png" alt="Marca Vitriz" />
+          <img src="img/carro-vitrina.png" alt="Marca Vitriz" />
           <p>Espacio publicitario premium. Tu marca podría estar aquí.</p>
           <span class="sello-temporal">728×90 · Visibilidad máxima</span>
         </div>
@@ -135,7 +135,7 @@
         </section>
         </div>
 
-        <!-- 3️⃣ Separador comunicativo: minitags -->
+        <!-- 3️⃣ Separador comunicativo: minitags + filas-->
         <section class="minitags-separador" aria-label="Guía editorial de confianza por parte de Vitriz">
           
           <div class="fieldset-like">
@@ -147,49 +147,32 @@
                 <div class="fila fila-superior">
                     <div class="minitag" title="Solicitud de propietario.">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 340 340" width="340" height="340">
-                        
-                        <!-- 1. Número decorativo -->
-                            <!-- Badge circular con sombra ligera -->
-                            <defs>
-                              <!-- 🌫 Filtro de sombra para el badge -->
-                              <filter id="badgeShadow" filterUnits="objectBoundingBox" x="-0.25" y="-0.25" width="1.5" height="1.5">
-                                <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
-                                <feOffset in="blur" dx="0" dy="4" result="offsetBlur"/>
-                                <feFlood flood-color="#000" flood-opacity="0.35" result="colorBlur"/>
-                                <feComposite in="colorBlur" in2="offsetBlur" operator="in" result="shadow"/>
-                                <feMerge>
-                                  <feMergeNode in="shadow"/>
-                                  <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                              </filter>
 
-                              <!-- ✨ Gradiente para sombra inferior -->
-                              <radialGradient id="shadowGradient" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" stop-color="#000" stop-opacity="0.25"/>
-                                <stop offset="100%" stop-color="#000" stop-opacity="0"/>
-                              </radialGradient>
+                        <defs>
+                          <!-- Gradiente para la sombra suave -->
+                          <linearGradient id="shadowGradientHex" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="black" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="black" stop-opacity="0"/>
+                          </linearGradient>
 
-                              <!-- Clips del badge -->
-                              <clipPath id="topClip" clipPathUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="64" height="32"/>
-                              </clipPath>
-                              <clipPath id="bottomClip" clipPathUnits="userSpaceOnUse">
-                                <rect x="0" y="32" width="64" height="32"/>
-                              </clipPath>
-                            </defs>
+                          <!-- Filtro: solo un blur aplicado al gráfico entero -->
+                          <filter id="shadowFilterHex" x="-50%" y="-50%" width="200%" height="200%">
+                            <!-- Difumina directamente la figura pintada -->
+                            <feGaussianBlur stdDeviation="6"/>
+                          </filter>
 
-                            <!-- 🟠 Badge con sombra -->
-                            <g class="badge" transform="translate(240, 5)" filter="url(#badgeShadow)">
-                              <circle cx="32" cy="32" r="32" fill="#FFA15B" clip-path="url(#topClip)"/>
-                              <circle cx="32" cy="32" r="32" fill="#F26A0F" clip-path="url(#bottomClip)"/>
-                              <text x="32" y="36" text-anchor="middle" alignment-baseline="middle"
-                                font-family="sans-serif" font-size="28" font-weight="bold" fill="white">
-                                1
-                              </text>
-                            </g>
-                        
-                        <!-- Sombra inferior -->
-                        <ellipse cx="150" cy="295" rx="60" ry="10" fill="url(#shadowGradient)" />
+                          <!-- Filtro para la sombra del badge -->
+                          <filter id="badgeShadow"
+                                  x="-50%" y="-50%"
+                                  width="200%" height="200%">
+                            <feDropShadow
+                              dx="0"      
+                              dy="2"      
+                              stdDeviation="3"  
+                              flood-color="black"
+                              flood-opacity="0.2"/>
+                          </filter>
+                        </defs>
 
                         <!-- Recuadro naranja interno -->
                         <g transform="translate(150,150) scale(1) translate(-150,-150)">
@@ -201,6 +184,43 @@
                             stroke-linejoin="round" />
                         </g>
 
+                        <!-- Sombra hexágono -->
+                         <ellipse class="hexagon-shadow"
+                          cx="150" cy="295"
+                          rx="60" ry="10" 
+                          fill="url(#shadowGradientHex)"
+                          filter="url(#shadowFilterHex)" />
+
+                        <!--  Número decorativo -->
+                        <!-- Badge circular con sombra ligera -->
+                          <g class="badge"
+                            transform="translate(230, 55)"
+                            filter="url(#badgeShadow)">
+                            
+                            <!-- Círculo padre: fondo blanco -->
+                            <circle
+                              cx="32" cy="32" r="32"
+                              fill="#ffffff"/>
+
+                            <!-- Círculo hijo: naranja editorial, desplazado hacia la derecha -->
+                            <circle
+                              cx="36" cy="32" r="24"
+                              fill="#4682B4"/>
+
+                            <!-- Texto centrado sobre el círculo hijo -->
+                            <text
+                              x="37" y="36"
+                              text-anchor="middle"
+                              alignment-baseline="middle"
+                              font-family="sans-serif"
+                              font-size="28"
+                              font-weight="bold"
+                              fill="white">
+                              1
+                            </text>
+                          </g>
+
+                        <!-- ÍCONO ESCALADO Y CENTRADO -->  
                         <g class="icono-silueta" transform="translate(265,205) scale(0.60) translate(-150,-150)" fill="white">
                         <path d="m 28.241822,118.24999 -1.857418,5.40252 -0.280364,0.46119 -0.245317,0.29648 c -2.287354,0.55857 -4.646594,0.8136 -7.009128,0.75767 2.172125,-5.95557 2.90248,-12.29182 2.137785,-18.54649 v 0 c -0.1493,-1.72948 0.658307,-3.40952 2.137782,-4.44721 3.944709,-2.819647 6.859463,-6.722164 8.340861,-11.167429 l 1.156504,-8.597934 c -0.08817,-1.172228 -0.311431,-2.331998 -0.665867,-3.458937 0,-0.395308 -0.280364,-0.691788 -0.385501,-0.955327 H 30.659972 C 27.83595,77.838134 25.626995,75.6464 25.613402,72.987298 25.788629,56.7797 23.966258,46.633477 20.812152,39.616774 15.485215,31.150611 7.2494934,26.868114 -2.5632802,22.256197 -4.2805171,21.56441 -6.067842,20.806737 -7.8201224,19.950236 -39.816783,51.377167 -66.311276,10.956996 -104.26569,71.834319 h -1.29669 c -0.49064,1.054152 -1.01632,2.108306 -1.50697,3.294228 l -0.28036,0.527075 c -1.48069,2.410615 -4.75997,3.236539 -7.32454,1.844768 -0.86445,-0.461192 -1.3551,-0.658846 -1.47192,-0.592963 -0.21026,0 -0.45559,0.527077 -0.771,1.218866 -0.68249,1.607486 -1.07341,3.31116 -1.1565,5.040168 -0.38551,7.115529 2.06769,16.471139 7.00913,20.984229 1.02154,0.91153 1.61435,2.16825 1.64714,3.49187 0.56073,21.74191 10.8291,30.04336 23.305342,40.15664 l 5.256845,4.28249 c 12.511288,10.47564 25.723493,15.87818 38.55019,15.87818 12.8267,0 25.197807,-5.07311 36.832956,-15.61465 h 8.4810408 0.911187 6.3432572 l -2.8386966,2.53657 -5.1867516,4.61191 c -31.5835558,28.27779 -65.1852268,20.99018 -90.1023088,0.16471 l -5.11666,-4.21661 c -12.301021,-9.88267 -22.744621,-18.41472 -26.003861,-36.92828 l -16.892,1.28475 c -6.73317,0.93397 -13.03064,-3.34855 -14.19347,-9.65208 l -6.55355,-48.688689 c -0.73268,-6.492547 4.33212,-12.291548 11.24965,-12.880427 l 5.50218,-0.42825 c -0.3293,-0.673993 -0.51958,-1.40059 -0.56073,-2.14125 -3.2943,-50.5663877 19.90591,-82.355684 51.271755,-97.607956 32.602677,-15.17485 71.260452,-13.289937 102.01782,4.974282 28.667324,17.36058 47.381681,49.1169314 38.97073,93.292521 -0.136024,0.613985 -0.347733,1.210974 -0.630822,1.778883 l 8.375907,0.889442 c 7.459753,0.720895 12.825187,7.073514 11.880467,14.066351 l -6.48344,46.316843 c -1.153829,6.93619 -7.978745,11.74402 -15.385032,10.838 v 0 c -0.954292,3.498 -2.124458,6.94081 -3.504555,10.31093 -1.190639,2.86223 -2.977936,5.47186 -5.256846,7.67555 -7.009126,6.7861 -29.648601,6.7861 -37.6740492,6.7861 H -17.878219 c -4.885252,4.51469 -11.556318,6.90353 -18.398954,6.58846 -11.63515,0 -21.027379,-5.79784 -21.027379,-12.94631 0,-7.14847 9.392229,-12.94632 21.027379,-12.94632 6.605054,-0.12789 12.990191,2.2326 17.733087,6.55551 H 3.0089738 c 6.3082116,0 25.0225752,0 28.2467752,-3.06362 0.973641,-0.94667 1.736212,-2.06668 2.242921,-3.29423 l 2.383103,-6.98376 -7.639951,-0.82355 z M -125.0828,27.724612 c 11.91551,-52.246446 76.714884,-84.826354 138.219958,-51.653484 5.534839,2.985041 10.576204,6.713928 14.964484,11.068604 C 22.162179,-22.19761 13.975989,-30.095575 4.2005248,-35.919861 -8.4962703,-43.513116 -23.07032,-47.882832 -38.099547,-48.602635 c -15.036741,-0.876082 -30.0527,1.999141 -43.526669,8.334395 -23.060024,11.068604 -40.933294,33.3375823 -43.456584,67.992852 z"/>
                       </g>
@@ -213,63 +233,13 @@
 
                     <div class="minitag" title="Agendamos cita para observar el inmueble.">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 340 340" width="340" height="340">
-                      <!-- 1. Número decorativo -->
-                            <!-- Badge circular con sombra ligera -->
-                            <defs>
-                              <filter
-                                id="badgeShadow"
-                                filterUnits="objectBoundingBox"
-                                x="-0.25" y="-0.25"
-                                width="1.5" height="1.5">
-                                <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
-                                <feOffset      in="blur"         dx="0"   dy="2" result="offsetBlur"/>
-                                <feFlood       flood-color="#000" flood-opacity="0.2" result="colorBlur"/>
-                                <feComposite   in="colorBlur" in2="offsetBlur" operator="in" result="shadow"/>
-                                <feMerge>
-                                  <feMergeNode in="shadow"/>
-                                  <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                              </filter>
 
-                              <clipPath id="topClip"    clipPathUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="64" height="32"/>
-                              </clipPath>
-                              <clipPath id="bottomClip" clipPathUnits="userSpaceOnUse">
-                                <rect x="0" y="32" width="64" height="32"/>
-                              </clipPath>
-                            </defs>
+                      <!-- Círculo padre: fondo blanco -->
+                      <g transform="translate(150,150) scale(1) translate(-150,-150)">
+                        <circle cx="150" cy="150" r="150" fill="#ffffff"/>
+                      </g>
 
-                            <!-- Badge encapsulado en <g>, listo para pegar en tu SVG padre -->
-                            <g class="badge"
-                              transform="translate(240, 5)"
-                              filter="url(#badgeShadow)">
-                              <!-- Mitad superior en naranja claro -->
-                              <circle
-                                cx="32" cy="32" r="32"
-                                fill="#FFA15B"
-                                clip-path="url(#topClip)"/>
-                              <!-- Mitad inferior en naranja oscuro -->
-                              <circle
-                                cx="32" cy="32" r="32"
-                                fill="#F26A0F"
-                                clip-path="url(#bottomClip)"/>
-                              <!-- Texto centrado -->
-                              <text
-                                x="32" y="36"
-                                text-anchor="middle"
-                                alignment-baseline="middle"
-                                font-family="sans-serif"
-                                font-size="28"
-                                font-weight="bold"
-                                fill="white">
-                                2
-                              </text>
-                            </g>
-
-                      <!-- Sombra -->
-                      <ellipse cx="150" cy="295" rx="60" ry="10" fill="url(#shadowGradient)" />
-
-                      <!-- Hexágono naranja interno -->
+                      <!-- Recuadro naranja interno -->
                         <g transform="translate(150,150) scale(1) translate(-150,-150)">
                           <path d="M 150 30 L 270 90 L 270 210 L 150 270 L 30 210 L 30 90 Z" 
                             fill="transparent"
@@ -278,6 +248,43 @@
                             stroke-linecap="round"
                             stroke-linejoin="round" />
                         </g>
+
+                        <!-- Sombra hexágono -->
+                         <ellipse class="hexagon-shadow"
+                          cx="150" cy="295"
+                          rx="60" ry="10" 
+                          fill="url(#shadowGradientHex)"
+                          filter="url(#shadowFilterHex)" />
+
+                        <!--  Número decorativo -->
+                        <!-- Badge circular con sombra ligera -->
+                            
+                          <g class="badge"
+                            transform="translate(0, 175)"
+                            filter="url(#badgeShadow)">
+                            
+                            <!-- Círculo padre: fondo blanco -->
+                            <circle
+                              cx="32" cy="35" r="32"
+                              fill="#ffffff"/>
+
+                            <!-- Círculo hijo: naranja editorial, desplazado hacia la derecha -->
+                            <circle
+                              cx="29" cy="32" r="24"
+                              fill="#4682B4"/>
+
+                            <!-- Texto centrado sobre el círculo hijo -->
+                            <text
+                              x="29" y="34"
+                              text-anchor="middle"
+                              alignment-baseline="middle"
+                              font-family="sans-serif"
+                              font-size="28"
+                              font-weight="bold"
+                              fill="white">
+                              2
+                            </text>
+                          </g>
 
                       <!-- Icono silueta centrado -->
                       <g class="icono-silueta" transform="translate(150,145) scale(0.42) translate(-171,-187.7175)">
@@ -299,63 +306,174 @@
                    
                 </div>
 
+                 <!-- Líneas detras de badges-->   
+                <div id="lineas-wrapper">
+                  <svg
+                    width="500"
+                    height="400"
+                    viewBox="0 0 132.29166 105.83334"
+                    version="1.1"
+                    id="svg1"
+                    xml:space="preserve"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:svg="http://www.w3.org/2000/svg"><defs
+                      id="defs1" />
+
+                      <defs>
+                        <radialGradient id="shadowGradient" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stop-color="black" stop-opacity="0.35"/>
+                          <stop offset="100%" stop-color="black" stop-opacity="0"/>
+                        </radialGradient>
+                      </defs>
+
+                      <ellipse
+                        id="shadow"
+                        rx="12"
+                        ry="4"
+                        fill="url(#shadowGradient)"
+                        style="visibility:hidden; opacity:0"/>
+
+                      <g
+                          id="lineas-minitags"
+                          class="path-lineas"
+                          transform="matrix(0.92802254,0,0,1.2638637,-2.9147132,-3.1717165) translate(18,-5)"
+                          style="fill:#b3b3b3"
+                          > 
+
+                        <path
+                        id="punto-a"
+                        class="s2"
+                        d="m 37.8,17.2 q 0.4,0.1 0.8,0.1 0.4,0.1 0.8,0.1 0.4,0.1 0.8,0.1 0.4,0 0.8,0.1 l 0.6,-0.1 Q 41.2,17.4 40.8,17.4 40.4,17.3 40,17.3 39.6,17.2 39.2,17.2 38.8,17.1 38.4,17.1 Z"
+                        style="fill:#b3b3b3" />
+                        
+                        <path
+                        id="punto-b"
+                        class="s2"
+                        d="m 64.2,22.6 q 0.3,0.1 0.5,0.2 0.2,0 0.4,0.1 0.2,0.1 0.4,0.2 0.2,0.1 0.4,0.2 l 0.8,-0.1 Q 66.5,23.1 66.3,23 66.1,22.9 65.9,22.8 65.7,22.7 65.5,22.7 65.3,22.6 65,22.5 Z"
+                        style="fill:#b3b3b3" />
+                        
+                        <path
+                        id="punto-c"
+                        class="s2"
+                        d="m 35.4,48.4 1,0.1 q 0.2,-0.2 0.4,-0.4 0.3,-0.1 0.5,-0.3 0.3,-0.1 0.5,-0.3 0.3,-0.2 0.5,-0.3 l -1,-0.1 q -0.2,0.2 -0.5,0.4 -0.2,0.1 -0.5,0.3 -0.2,0.1 -0.5,0.3 -0.2,0.2 -0.4,0.3 z"
+                        style="fill:#b3b3b3" />
+
+                        <path
+                        id="punto-d"
+                        class="s2"
+                        d="m 78.1,66.9 q -0.8,0 -1.5,0 -0.7,-0.1 -1.5,-0.1 -0.7,0 -1.4,0 Q 73,66.7 72.3,66.7 L 71.9,67 q 0.7,0.1 1.4,0.1 0.7,0 1.5,0 0.7,0.1 1.5,0.1 0.7,0 1.5,0 z"
+                        style="fill:#b3b3b3" />
+                                                <path
+                        id="path173"
+                        class="s2"
+                        d="m 50,18.9 q 0.4,0.1 0.7,0.2 0.4,0 0.7,0.1 0.4,0 0.7,0.1 0.4,0.1 0.7,0.1 l 0.7,-0.1 q -0.4,-0.1 -0.7,-0.1 -0.4,-0.1 -0.7,-0.2 -0.4,0 -0.7,-0.1 -0.4,0 -0.8,-0.1 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path174"
+                        class="s2"
+                        d="m 69.9,26.6 0.1,0.1 0.9,-0.1 -0.1,-0.1 q -0.1,-0.1 -0.1,-0.2 -0.1,-0.1 -0.2,-0.2 0,-0.1 -0.1,-0.2 -0.1,-0.1 -0.2,-0.2 l -0.9,0.1 q 0.1,0.1 0.2,0.2 0.1,0.1 0.1,0.2 0.1,0.1 0.2,0.2 0,0.1 0.1,0.2 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path175"
+                        class="s2"
+                        d="m 70.6,28.6 0.9,-0.1 q 0,-0.1 0,-0.2 -0.1,-0.1 -0.1,-0.3 0,-0.1 0,-0.2 -0.1,-0.1 -0.1,-0.2 h -0.9 q 0,0.1 0,0.2 0.1,0.2 0.1,0.3 0,0.1 0,0.2 0,0.1 0.1,0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path176"
+                        class="s2"
+                        d="m 68.3,32.6 q 0.2,-0.1 0.4,-0.3 0.2,-0.1 0.4,-0.2 0.1,-0.2 0.3,-0.3 0.2,-0.1 0.3,-0.2 l -0.9,-0.1 q -0.2,0.2 -0.3,0.3 -0.2,0.1 -0.4,0.2 -0.1,0.2 -0.3,0.3 -0.2,0.1 -0.4,0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path17"
+                        class="s2"
+                        d="m 63.7,34.6 0.9,0.1 q 0.3,-0.1 0.6,-0.3 0.2,-0.1 0.5,-0.2 0.2,-0.2 0.4,-0.3 0.3,-0.1 0.5,-0.3 h -0.9 q -0.2,0.1 -0.5,0.3 -0.2,0.1 -0.4,0.2 -0.3,0.1 -0.5,0.3 -0.3,0.1 -0.6,0.2 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path178"
+                        class="s2"
+                        d="m 52,40 q -0.4,0.2 -0.7,0.3 -0.3,0.1 -0.6,0.3 -0.3,0.1 -0.7,0.3 -0.3,0.1 -0.6,0.2 l 0.9,0.1 q 0.3,-0.1 0.6,-0.3 0.3,-0.1 0.7,-0.3 0.3,-0.1 0.6,-0.2 0.3,-0.2 0.6,-0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path179"
+                        class="s2"
+                        d="m 31.5,56.6 1.1,-0.1 Q 32.5,56.4 32.4,56.2 32.3,56 32.2,55.9 32.1,55.7 32.1,55.5 32,55.3 32,55.2 l -1.2,0.1 q 0.1,0.1 0.1,0.3 0.1,0.2 0.2,0.3 0,0.2 0.1,0.4 0.1,0.2 0.3,0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path180"
+                        class="s2"
+                        d="m 39.5,45.9 h 1 q 0.3,-0.1 0.6,-0.3 0.2,-0.1 0.5,-0.3 0.3,-0.1 0.6,-0.3 0.3,-0.1 0.6,-0.3 l -0.9,-0.1 q -0.3,0.2 -0.6,0.4 -0.3,0.1 -0.6,0.3 -0.3,0.1 -0.6,0.3 -0.3,0.1 -0.6,0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path186"
+                        class="s2"
+                        d="m 43,62.8 q 0.4,0.1 0.9,0.3 0.4,0.1 0.9,0.2 0.5,0.1 1,0.3 0.5,0.1 1,0.2 l 0.8,-0.2 q -0.4,-0.2 -0.9,-0.3 -0.5,-0.1 -1,-0.2 -0.4,-0.2 -0.9,-0.3 -0.4,-0.1 -0.8,-0.2 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path188"
+                        class="s2"
+                        d="M 56.4,65.2 Q 55.8,65.1 55.2,65 54.6,64.9 54,64.8 53.5,64.7 52.9,64.6 52.3,64.5 51.8,64.4 L 51,64.7 q 0.5,0.1 1.1,0.2 0.6,0.1 1.2,0.2 0.6,0.1 1.2,0.2 0.6,0.1 1.2,0.2 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path192"
+                        class="s2"
+                        d="m 44.1,18 q 0.4,0.1 0.7,0.1 0.4,0.1 0.8,0.1 0.4,0.1 0.8,0.1 0.3,0.1 0.7,0.2 l 0.6,-0.2 Q 47.3,18.3 47,18.2 46.6,18.1 46.2,18.1 45.8,18 45.5,18 45.1,17.9 44.7,17.9 Z"
+                        style="fill:#b3b3b3" /><path
+                        id="path193"
+                        class="s2"
+                        d="m 55.4,20 q 0.4,0.1 0.7,0.1 0.3,0.1 0.6,0.2 0.3,0 0.6,0.1 0.3,0.1 0.6,0.2 l 0.8,-0.2 q -0.3,0 -0.6,-0.1 -0.3,-0.1 -0.7,-0.2 -0.3,0 -0.6,-0.1 -0.3,-0.1 -0.7,-0.1 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path195"
+                        class="s2"
+                        d="m 67.3,24.1 q 0.1,0.1 0.3,0.2 0.1,0.1 0.3,0.2 0.1,0.1 0.3,0.2 0.1,0.1 0.2,0.2 h 0.9 Q 69.2,24.8 69,24.7 68.9,24.5 68.7,24.4 68.6,24.3 68.5,24.2 68.3,24.1 68.1,24 Z"
+                        style="fill:#b3b3b3" /><path
+                        id="path196"
+                        class="s2"
+                        d="m 71.4,29.5 h -1 q 0,0.2 -0.1,0.3 0,0.1 -0.1,0.2 -0.1,0.1 -0.2,0.3 -0.1,0.1 -0.2,0.2 h 1 q 0.1,-0.1 0.2,-0.2 0.1,-0.2 0.1,-0.3 0.1,-0.1 0.2,-0.2 0,-0.2 0.1,-0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path197"
+                        class="s2"
+                        d="m 59.3,36.8 h 0.9 q 0.3,-0.1 0.6,-0.2 0.3,-0.2 0.6,-0.3 0.3,-0.1 0.6,-0.3 0.2,-0.1 0.5,-0.2 l -0.9,-0.1 q -0.3,0.1 -0.5,0.3 -0.3,0.1 -0.6,0.2 -0.3,0.2 -0.6,0.3 -0.3,0.1 -0.6,0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path198"
+                        class="s2"
+                        d="m 54.5,38.9 0.9,0.1 q 0.3,-0.2 0.6,-0.3 0.3,-0.1 0.6,-0.3 0.3,-0.1 0.6,-0.2 0.3,-0.2 0.6,-0.3 L 57,37.8 q -0.3,0.2 -0.7,0.3 -0.3,0.1 -0.6,0.3 -0.3,0.1 -0.6,0.2 -0.3,0.2 -0.6,0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path200"
+                        class="s2"
+                        d="m 60.2,21.2 q 0.3,0.1 0.6,0.2 0.3,0 0.5,0.1 0.3,0.1 0.5,0.2 0.3,0.1 0.5,0.2 l 0.8,-0.1 q -0.2,-0.1 -0.5,-0.2 -0.2,-0.1 -0.5,-0.2 -0.3,-0.1 -0.5,-0.2 -0.3,0 -0.6,-0.1 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path207"
+                        class="s2"
+                        d="M 40.7,61.5 Q 40.4,61.3 40,61.2 39.6,61 39.3,60.9 38.9,60.8 38.6,60.6 38.3,60.5 38,60.3 l -1.1,0.2 q 0.3,0.2 0.7,0.3 0.3,0.2 0.7,0.3 0.3,0.1 0.7,0.3 0.3,0.1 0.7,0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path214"
+                        class="s2"
+                        d="M 66.7,66.3 Q 66,66.3 65.3,66.2 64.7,66.2 64,66.1 63.3,66 62.7,66 62,65.9 61.4,65.8 l -0.6,0.3 q 0.6,0.1 1.3,0.2 0.7,0.1 1.3,0.1 0.7,0.1 1.4,0.1 0.7,0.1 1.4,0.2 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path248"
+                        class="s2"
+                        d="m 30.8,53.9 1.1,-0.1 q 0,-0.2 0.1,-0.3 0,-0.2 0.1,-0.4 0,-0.1 0.1,-0.3 0.1,-0.2 0.2,-0.3 h -1.1 q -0.1,0.2 -0.2,0.3 -0.1,0.2 -0.2,0.4 0,0.2 -0.1,0.3 0,0.2 0,0.4 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path249"
+                        class="s2"
+                        d="m 32.7,58 q 0.2,0.1 0.4,0.3 0.2,0.2 0.5,0.3 0.2,0.2 0.4,0.3 0.3,0.2 0.6,0.4 l 1,-0.2 Q 35.4,58.9 35.1,58.8 34.9,58.6 34.7,58.5 34.4,58.3 34.2,58.2 34,58 33.8,57.8 Z"
+                        style="fill:#b3b3b3" /><path
+                        id="path257"
+                        class="s2"
+                        d="m 45.3,43.5 q 0.3,-0.1 0.6,-0.3 0.3,-0.1 0.6,-0.3 0.3,-0.1 0.6,-0.3 0.3,-0.1 0.7,-0.2 l -1,-0.1 q -0.3,0.1 -0.6,0.3 -0.3,0.1 -0.6,0.3 -0.3,0.1 -0.6,0.3 -0.4,0.1 -0.7,0.3 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path251"
+                        class="s2"
+                        d="m 90,67 q -0.8,0 -1.5,0 -0.8,0 -1.6,0 -0.7,0 -1.4,0 -0.8,0 -1.5,0 l -0.2,0.4 q 0.7,0 1.5,0 0.7,0 1.5,0 0.7,0 1.5,0 0.8,0 1.6,0 z"
+                        style="fill:#b3b3b3" /><path
+                        id="path258"
+                        class="s2"
+                        d="m 34.7,49.8 -1.1,-0.1 q -0.2,0.2 -0.4,0.4 -0.1,0.2 -0.3,0.3 -0.2,0.2 -0.3,0.4 -0.2,0.1 -0.4,0.3 h 1.1 q 0.2,-0.2 0.3,-0.3 0.2,-0.2 0.4,-0.4 0.1,-0.1 0.3,-0.3 0.2,-0.2 0.4,-0.3 z"
+                        style="fill:#b3b3b3" />
+                     </g>
+
+                     <!-- Location -->
+                        <g id="location" visibility="hidden" transform="scale(0.1)">
+                            <path d="M406.185,260.012c-18.028-13.493-16.233-28.572-16.233-28.572h11.184a4.7,4.7,0,0,0-.142,1.1,5.378,5.378,0,0,0,.466,2.1,7.353,7.353,0,0,0,2.622,2.615,5,5,0,0,0,4.218,0,7.316,7.316,0,0,0,2.619-2.615,5.4,5.4,0,0,0,.465-2.105,4.728,4.728,0,0,0-.141-1.1h11.5S424.217,246.277,406.185,260.012Zm4.731-29.576a7.353,7.353,0,0,0-2.619-2.618,4.977,4.977,0,0,0-4.211,0,7.389,7.389,0,0,0-2.622,2.618,6.468,6.468,0,0,0-.326,1H389.966c0-7.972,7.335-14.435,16.383-14.435s16.383,6.463,16.383,14.435H411.242A6.523,6.523,0,0,0,410.915,230.436Z" 
+                            transform="translate(-389.902 -217)" fill="#E74C3C"/>
+                        </g>        
+                  </svg>
+                </div>
+
                 <div class="fila fila-inferior"> 
-                    <div class="minitag" title="El inmueble aparece en Vitriz como verificado.">
+
+                    <div class="minitag" title="Revisamos documentos y confirmamos todo en regla.">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 340 340" width="340" height="340">
-                        <!-- 1. Número decorativo -->
-                            <!-- Badge circular con sombra ligera -->
-                            <defs>
-                              <filter
-                                id="badgeShadow"
-                                filterUnits="objectBoundingBox"
-                                x="-0.25" y="-0.25"
-                                width="1.5" height="1.5">
-                                <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
-                                <feOffset      in="blur"         dx="0"   dy="2" result="offsetBlur"/>
-                                <feFlood       flood-color="#000" flood-opacity="0.2" result="colorBlur"/>
-                                <feComposite   in="colorBlur" in2="offsetBlur" operator="in" result="shadow"/>
-                                <feMerge>
-                                  <feMergeNode in="shadow"/>
-                                  <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                              </filter>
-
-                              <clipPath id="topClip"    clipPathUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="64" height="32"/>
-                              </clipPath>
-                              <clipPath id="bottomClip" clipPathUnits="userSpaceOnUse">
-                                <rect x="0" y="32" width="64" height="32"/>
-                              </clipPath>
-                            </defs>
-
-                            <!-- Badge encapsulado en <g>, listo para pegar en tu SVG padre -->
-                            <g class="badge"
-                              transform="translate(240, 5)"
-                              filter="url(#badgeShadow)">
-                              <!-- Mitad superior en naranja claro -->
-                              <circle
-                                cx="32" cy="32" r="32"
-                                fill="#FFA15B"
-                                clip-path="url(#topClip)"/>
-                              <!-- Mitad inferior en naranja oscuro -->
-                              <circle
-                                cx="32" cy="32" r="32"
-                                fill="#F26A0F"
-                                clip-path="url(#bottomClip)"/>
-                              <!-- Texto centrado -->
-                              <text
-                                x="32" y="36"
-                                text-anchor="middle"
-                                alignment-baseline="middle"
-                                font-family="sans-serif"
-                                font-size="28"
-                                font-weight="bold"
-                                fill="white">
-                                4
-                              </text>
-                            </g>
-                        <!-- Sombra -->
-                        <ellipse cx="150" cy="295" rx="60" ry="10" fill="url(#shadowGradient)" />
 
                         <!-- Recuadro naranja interno -->
                         <g transform="translate(150,150) scale(1) translate(-150,-150)">
@@ -366,6 +484,116 @@
                             stroke-linecap="round"
                             stroke-linejoin="round" />
                         </g>
+
+                        <!-- Sombra hexágono -->
+                         <ellipse class="hexagon-shadow"
+                          cx="150" cy="295"
+                          rx="60" ry="10" 
+                          fill="url(#shadowGradientHex)"
+                          filter="url(#shadowFilterHex)" />
+
+                        <!--  Número decorativo -->
+                        <!-- Badge circular con sombra ligera -->
+                            
+                          <g class="badge"
+                            transform="translate(230, 55)"
+                            filter="url(#badgeShadow)">
+                            
+                            <!-- Círculo padre: fondo blanco -->
+                            <circle
+                              cx="32" cy="32" r="32"
+                              fill="#ffffff"/>
+
+                            <!-- Círculo hijo: naranja editorial, desplazado hacia la derecha -->
+                            <circle
+                              cx="36" cy="32" r="24"
+                              fill="#4682B4"/>
+
+                            <!-- Texto centrado sobre el círculo hijo -->
+                            <text
+                              x="37" y="36"
+                              text-anchor="middle"
+                              alignment-baseline="middle"
+                              font-family="sans-serif"
+                              font-size="28"
+                              font-weight="bold"
+                              fill="white">
+                              3
+                            </text>
+                          </g>
+
+                        <!-- ÍCONO ESCALADO Y CENTRADO -->
+                        <g class="icono-silueta" transform="translate(105,105) scale(0.55) translate(-55,-55)">
+                          <svg
+                              width="300"
+                              height="300"
+                              viewBox="0 0 79.375 79.375"
+                              xmlns="http://www.w3.org/2000/svg">
+
+                              <g style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+                                transform="matrix(0.26458333,0,0,0.26458333,49.604991,23.109921)">
+                                
+                                <path
+                                  class="cls-1"
+                                  style="fill:#241f1c;stroke-width:1.97356"
+                                  d="m 12.676931,72.934499 a 47.346631,51.415257 0 0 1 39.56284,79.426291 l 20.47269,24.22687 -14.12824,14.00551 -19.73407,-23.56875 A 47.346631,51.415257 0 1 1 12.676931,72.934499 Z m -80.77335,0.53472 a 5.1891907,5.6351122 0 0 1 -4.92405,-5.84078 5.1323748,5.5734139 0 0 1 4.92405,-5.84077 h 29.16552 a 5.227068,5.6762444 0 0 1 4.92405,5.84077 5.1323748,5.5734139 0 0 1 -4.92405,5.84078 z M -96.068819,55.55614 A 10.738216,11.66098 0 1 1 -106.80702,67.217119 10.738216,11.66098 0 0 1 -96.068819,55.55614 Z m 3.78774,-38.211821 a 3.7877305,4.1132205 0 0 1 5.39751,0 3.9203011,4.2571833 0 0 1 0,5.943603 l -3.78773,4.113221 3.78773,4.113221 a 3.7877305,4.1132205 0 0 1 0,5.902471 3.7877305,4.1132205 0 0 1 -5.37858,0 l -3.78773,-4.11322 -3.78772,4.11322 a 3.7877305,4.1132205 0 0 1 -5.416451,0 3.9203011,4.2571833 0 0 1 0,-5.943604 l 3.78773,-4.113219 -3.78773,-4.216052 a 3.8367138,4.1664131 0 0 1 5.435391,-5.881906 l 3.78772,4.113221 3.78773,-4.113221 z m -14.374441,-35.209168 a 4.3369514,4.7096375 0 0 1 5.98462,1.295665 l 2.140071,2.79699 7.57545,-10.385883 a 4.2993781,4.6688354 0 1 1 6.64747,5.923039 l -11.09805,15.0955186 a 4.6967858,5.1003935 0 0 1 -1.04163,1.069437 4.3180127,4.6890714 0 0 1 -5.984601,-1.295664 l -5.37858,-8.0002136 a 4.3180127,4.6890714 0 0 1 1.19313,-6.498889 z m 125.960981,-8.740594 h 17.65082 a 12.669959,13.758723 0 0 1 12.61314,13.676459 v 63.549259 c -0.37877,4.298316 -10.05642,4.339448 -10.88972,0 v -63.549259 a 1.7612947,1.9126475 0 0 0 -0.51134,-1.37793 1.7234174,1.8715153 0 0 0 -1.26889,-0.555284 h -17.66977 v 65.482473 c -0.92799,3.886994 -8.99586,4.48341 -10.8139699,0 v -99.046352 a 1.8938652,2.0566103 0 0 0 -0.51134,-1.357363 1.7612947,1.9126475 0 0 0 -1.26889,-0.555286 H -125.93506 a 1.7612947,1.9126475 0 0 0 -1.26889,0.555286 1.8938652,2.0566103 0 0 0 -0.51134,1.398494 V 114.3135 a 1.8938652,2.0566103 0 0 0 0.51134,1.39849 1.7612947,1.9126475 0 0 0 1.26889,0.55529 h 72.099441 c 5.45433,0.59641 5.6816,10.83833 0,11.74324 h -43.71041 v 21.82063 a 1.742356,1.8920814 0 0 0 1.78023,1.93322 h 41.93018 c 3.95818,0.49359 5.22707,10.28305 0,11.74324 h -41.85442 a 12.385879,13.450232 0 0 1 -8.901161,-4.11322 12.556327,13.635326 0 0 1 -3.78774,-9.66607 v -21.7178 H -125.954 A 12.669959,13.758723 0 0 1 -138.56715,114.3135 V -48.426077 a 12.385879,13.450232 0 0 1 3.78773,-9.583804 12.518449,13.594194 0 0 1 8.90117,-4.113221 H 6.6923111 a 12.404818,13.470798 0 0 1 8.9011699,4.113221 12.594204,13.676459 0 0 1 3.78773,9.666068 v 21.73837 z m -87.4587,18.8591166 a 5.2081294,5.6556783 0 0 1 -4.92405,-5.8407736 5.1323748,5.5734139 0 0 1 4.92405,-5.840773 h 50.52833 a 5.1891907,5.6351122 0 0 1 4.92405,5.840773 5.1323748,5.5734139 0 0 1 -4.92405,5.8407736 z m 0,40.5974864 a 5.1891907,5.6351122 0 0 1 -4.92405,-5.820207 5.1323748,5.5734139 0 0 1 4.92405,-5.840773 h 50.52833 a 5.1891907,5.6351122 0 0 1 4.92405,5.840773 5.1134361,5.5528478 0 0 1 -4.92405,5.820207 z m 63.0089001,96.2905 a 6.5527737,7.1158715 0 0 1 -0.64392,-0.90491 6.4391418,6.9924749 0 0 1 -0.4924,-1.02831 6.0224915,6.5400207 0 0 1 8.65496,-8.22643 5.5490252,6.0258681 0 0 1 0.928,0.78151 v 0 c 1.64766,1.70699 2.17794,2.05661 3.99605,3.84586 l 1.59085,1.52189 12.8593399,-14.99269 c 5.4354,-6.16983 14.1093,2.81756 8.67391,9.04909 l -16.04104,18.63289 -0.81436,0.92547 a 6.0414301,6.5605868 0 0 1 -8.3898299,0.39075 v 0 c -0.41665,-0.39075 -0.8333,-0.82264 -1.24995,-1.23396 -0.98481,-0.94604 -2.0075,-1.93322 -3.04912003,-2.89982 -2.38626997,-2.2417 -3.78772997,-3.47567 -6.00355997,-5.90247 z M 12.714811,83.711129 a 37.612163,40.84428 0 1 1 -37.65004,40.782591 37.612163,40.84428 0 0 1 37.65004,-40.844281 z"/>
+                              </g>
+                            </svg>
+                        </g>
+                      </svg>
+                      <p>Revisamos documentos y <br> confirmamos todo en regla.</p>  
+                      
+                    </div>  
+
+                    <div class="minitag" title="El inmueble aparece en Vitriz como verificado.">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 340 340" width="340" height="340">
+                        
+                        <!-- Recuadro naranja interno -->
+                        <g transform="translate(150,150) scale(1) translate(-150,-150)">
+                          <path d="M 150 30 L 270 90 L 270 210 L 150 270 L 30 210 L 30 90 Z" 
+                            fill="transparent"
+                            stroke="#F38820"
+                            stroke-width="1"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </g>
+
+                        <!-- Sombra hexágono -->
+                         <ellipse class="hexagon-shadow"
+                          cx="150" cy="295"
+                          rx="60" ry="10" 
+                          fill="url(#shadowGradientHex)"
+                          filter="url(#shadowFilterHex)" />
+
+                        <!--  Número decorativo -->
+                        <!-- Badge circular con sombra ligera -->
+                            
+                          <g class="badge"
+                            transform="translate(0, 175)"
+                            filter="url(#badgeShadow)">
+                            
+                            <!-- Círculo padre: fondo blanco -->
+                            <circle
+                              cx="32" cy="32" r="32"
+                              fill="#ffffff"/>
+
+                            <!-- Círculo hijo: naranja editorial, desplazado hacia la derecha -->
+                            <circle
+                              cx="29" cy="32" r="24"
+                              fill="#4682B4"/>
+
+                            <!-- Texto centrado sobre el círculo hijo -->
+                            <text
+                              x="29" y="34"
+                              text-anchor="middle"
+                              alignment-baseline="middle"
+                              font-family="sans-serif"
+                              font-size="28"
+                              font-weight="bold"
+                              fill="white">
+                              4
+                            </text>
+                          </g>
 
 
                         <!-- ÍCONO ESCALADO Y CENTRADO -->
@@ -438,96 +666,7 @@
                       <p>El inmueble aparece en Vitriz <br> como verificado.</p>
                     </div>
 
-                    <div class="minitag" title="Revisamos documentos y confirmamos todo en regla.">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 340 340" width="340" height="340">
-                        <!-- 1. Número decorativo -->
-                            <!-- Badge circular con sombra ligera -->
-                            <defs>
-                              <filter
-                                id="badgeShadow"
-                                filterUnits="objectBoundingBox"
-                                x="-0.25" y="-0.25"
-                                width="1.5" height="1.5">
-                                <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
-                                <feOffset      in="blur"         dx="0"   dy="2" result="offsetBlur"/>
-                                <feFlood       flood-color="#000" flood-opacity="0.2" result="colorBlur"/>
-                                <feComposite   in="colorBlur" in2="offsetBlur" operator="in" result="shadow"/>
-                                <feMerge>
-                                  <feMergeNode in="shadow"/>
-                                  <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                              </filter>
-
-                              <clipPath id="topClip"    clipPathUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="64" height="32"/>
-                              </clipPath>
-                              <clipPath id="bottomClip" clipPathUnits="userSpaceOnUse">
-                                <rect x="0" y="32" width="64" height="32"/>
-                              </clipPath>
-                            </defs>
-
-                            <!-- Badge encapsulado en <g>, listo para pegar en tu SVG padre -->
-                            <g class="badge"
-                              transform="translate(240, 5)"
-                              filter="url(#badgeShadow)">
-                              <!-- Mitad superior en naranja claro -->
-                              <circle
-                                cx="32" cy="32" r="32"
-                                fill="#FFA15B"
-                                clip-path="url(#topClip)"/>
-                              <!-- Mitad inferior en naranja oscuro -->
-                              <circle
-                                cx="32" cy="32" r="32"
-                                fill="#F26A0F"
-                                clip-path="url(#bottomClip)"/>
-                              <!-- Texto centrado -->
-                              <text
-                                x="32" y="36"
-                                text-anchor="middle"
-                                alignment-baseline="middle"
-                                font-family="sans-serif"
-                                font-size="28"
-                                font-weight="bold"
-                                fill="white">
-                                3
-                              </text>
-                            </g>
-
-                        <!-- Sombra -->
-                        <ellipse cx="150" cy="295" rx="60" ry="10" fill="url(#shadowGradient)" />
-
-                      <!-- Recuadro naranja interno -->
-                        <g transform="translate(150,150) scale(1) translate(-150,-150)">
-                          <path d="M 150 30 L 270 90 L 270 210 L 150 270 L 30 210 L 30 90 Z" 
-                            fill="transparent"
-                            stroke="#F38820"
-                            stroke-width="1"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        </g>
-
-                        <!-- ÍCONO ESCALADO Y CENTRADO -->
-                        <g class="icono-silueta" transform="translate(105,105) scale(0.55) translate(-55,-55)">
-                          <svg
-                              width="300"
-                              height="300"
-                              viewBox="0 0 79.375 79.375"
-                              xmlns="http://www.w3.org/2000/svg">
-
-                              <g style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-                                transform="matrix(0.26458333,0,0,0.26458333,49.604991,23.109921)">
-                                
-                                <path
-                                  class="cls-1"
-                                  style="fill:#241f1c;stroke-width:1.97356"
-                                  d="m 12.676931,72.934499 a 47.346631,51.415257 0 0 1 39.56284,79.426291 l 20.47269,24.22687 -14.12824,14.00551 -19.73407,-23.56875 A 47.346631,51.415257 0 1 1 12.676931,72.934499 Z m -80.77335,0.53472 a 5.1891907,5.6351122 0 0 1 -4.92405,-5.84078 5.1323748,5.5734139 0 0 1 4.92405,-5.84077 h 29.16552 a 5.227068,5.6762444 0 0 1 4.92405,5.84077 5.1323748,5.5734139 0 0 1 -4.92405,5.84078 z M -96.068819,55.55614 A 10.738216,11.66098 0 1 1 -106.80702,67.217119 10.738216,11.66098 0 0 1 -96.068819,55.55614 Z m 3.78774,-38.211821 a 3.7877305,4.1132205 0 0 1 5.39751,0 3.9203011,4.2571833 0 0 1 0,5.943603 l -3.78773,4.113221 3.78773,4.113221 a 3.7877305,4.1132205 0 0 1 0,5.902471 3.7877305,4.1132205 0 0 1 -5.37858,0 l -3.78773,-4.11322 -3.78772,4.11322 a 3.7877305,4.1132205 0 0 1 -5.416451,0 3.9203011,4.2571833 0 0 1 0,-5.943604 l 3.78773,-4.113219 -3.78773,-4.216052 a 3.8367138,4.1664131 0 0 1 5.435391,-5.881906 l 3.78772,4.113221 3.78773,-4.113221 z m -14.374441,-35.209168 a 4.3369514,4.7096375 0 0 1 5.98462,1.295665 l 2.140071,2.79699 7.57545,-10.385883 a 4.2993781,4.6688354 0 1 1 6.64747,5.923039 l -11.09805,15.0955186 a 4.6967858,5.1003935 0 0 1 -1.04163,1.069437 4.3180127,4.6890714 0 0 1 -5.984601,-1.295664 l -5.37858,-8.0002136 a 4.3180127,4.6890714 0 0 1 1.19313,-6.498889 z m 125.960981,-8.740594 h 17.65082 a 12.669959,13.758723 0 0 1 12.61314,13.676459 v 63.549259 c -0.37877,4.298316 -10.05642,4.339448 -10.88972,0 v -63.549259 a 1.7612947,1.9126475 0 0 0 -0.51134,-1.37793 1.7234174,1.8715153 0 0 0 -1.26889,-0.555284 h -17.66977 v 65.482473 c -0.92799,3.886994 -8.99586,4.48341 -10.8139699,0 v -99.046352 a 1.8938652,2.0566103 0 0 0 -0.51134,-1.357363 1.7612947,1.9126475 0 0 0 -1.26889,-0.555286 H -125.93506 a 1.7612947,1.9126475 0 0 0 -1.26889,0.555286 1.8938652,2.0566103 0 0 0 -0.51134,1.398494 V 114.3135 a 1.8938652,2.0566103 0 0 0 0.51134,1.39849 1.7612947,1.9126475 0 0 0 1.26889,0.55529 h 72.099441 c 5.45433,0.59641 5.6816,10.83833 0,11.74324 h -43.71041 v 21.82063 a 1.742356,1.8920814 0 0 0 1.78023,1.93322 h 41.93018 c 3.95818,0.49359 5.22707,10.28305 0,11.74324 h -41.85442 a 12.385879,13.450232 0 0 1 -8.901161,-4.11322 12.556327,13.635326 0 0 1 -3.78774,-9.66607 v -21.7178 H -125.954 A 12.669959,13.758723 0 0 1 -138.56715,114.3135 V -48.426077 a 12.385879,13.450232 0 0 1 3.78773,-9.583804 12.518449,13.594194 0 0 1 8.90117,-4.113221 H 6.6923111 a 12.404818,13.470798 0 0 1 8.9011699,4.113221 12.594204,13.676459 0 0 1 3.78773,9.666068 v 21.73837 z m -87.4587,18.8591166 a 5.2081294,5.6556783 0 0 1 -4.92405,-5.8407736 5.1323748,5.5734139 0 0 1 4.92405,-5.840773 h 50.52833 a 5.1891907,5.6351122 0 0 1 4.92405,5.840773 5.1323748,5.5734139 0 0 1 -4.92405,5.8407736 z m 0,40.5974864 a 5.1891907,5.6351122 0 0 1 -4.92405,-5.820207 5.1323748,5.5734139 0 0 1 4.92405,-5.840773 h 50.52833 a 5.1891907,5.6351122 0 0 1 4.92405,5.840773 5.1134361,5.5528478 0 0 1 -4.92405,5.820207 z m 63.0089001,96.2905 a 6.5527737,7.1158715 0 0 1 -0.64392,-0.90491 6.4391418,6.9924749 0 0 1 -0.4924,-1.02831 6.0224915,6.5400207 0 0 1 8.65496,-8.22643 5.5490252,6.0258681 0 0 1 0.928,0.78151 v 0 c 1.64766,1.70699 2.17794,2.05661 3.99605,3.84586 l 1.59085,1.52189 12.8593399,-14.99269 c 5.4354,-6.16983 14.1093,2.81756 8.67391,9.04909 l -16.04104,18.63289 -0.81436,0.92547 a 6.0414301,6.5605868 0 0 1 -8.3898299,0.39075 v 0 c -0.41665,-0.39075 -0.8333,-0.82264 -1.24995,-1.23396 -0.98481,-0.94604 -2.0075,-1.93322 -3.04912003,-2.89982 -2.38626997,-2.2417 -3.78772997,-3.47567 -6.00355997,-5.90247 z M 12.714811,83.711129 a 37.612163,40.84428 0 1 1 -37.65004,40.782591 37.612163,40.84428 0 0 1 37.65004,-40.844281 z"/>
-                              </g>
-                            </svg>
-                        </g>
-                      </svg>
-                      <p>Revisamos documentos y <br> confirmamos todo en regla.</p>  
-                      
-                    </div>
+                    
                 </div>
               </div>
             </div>
@@ -737,7 +876,7 @@
             </form>
                 
             <div class="adsense-muestra">
-                <img src="https://i.postimg.cc/XNPfvqVs/vitriz-icono.png" alt="Logo Vitriz" />
+                <img src="img/carro-vitrina.png" alt="Logo Vitriz" />
                 <p>📣 Tu anuncio puede estar aquí</p>
                 <span class="etiqueta-anuncio">300×250 · Recuadro de muestra</span>
             </div>
